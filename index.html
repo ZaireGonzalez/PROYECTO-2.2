@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SISPOA - Sistema POS Agrícola</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>SISPOA</h1>
+        <h2>Sistema POS Agrícola</h2>
+    </header>
+
+    <main>
+        <!-- Formulario de Registro -->
+        <section class="container form-container">
+            <h3>Formulario de Registro</h3>
+            <form id="registroForm">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" placeholder="Nombre" required>
+
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" placeholder="Correo Electrónico" required>
+
+                <label for="contraseña">Contraseña:</label>
+                <input type="password" id="contraseña" placeholder="Contraseña" required>
+
+                <button type="submit">Registrar</button>
+            </form>
+        </section>
+
+        <!-- Menú de Navegación -->
+        <section class="container" id="menu" style="display: none;">
+            <div class="menu-buttons">
+                <button onclick="abrirModal('ventas')">Ventas</button>
+                <button onclick="abrirModal('anulaciones')">Anulaciones</button>
+                <button onclick="abrirModal('cierres')">Cierres</button>
+                <button onclick="abrirModal('consultaSaldo')">Consulta de Saldo</button>
+                <button onclick="abrirModal('peticiones')">Peticiones, Quejas o Reclamos</button>
+                <button onclick="abrirModal('inventario')">Inventario</button>
+                <button onclick="abrirModal('proveedores')">Proveedores</button>
+            </div>
+            <button class="logout-btn" onclick="cerrarSesion()">Cerrar Sesión</button>
+        </section>
+
+        <!-- Modales -->
+        <div id="ventas" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="cerrarModal('ventas')">&times;</span>
+                <h3>Ventas</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Tipo de Venta</th>
+                            <th>Valor</th>
+                            <th>Tipo de Tarjeta</th>
+                            <th>Impuesto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>01/11/2024</td><td>Al contado</td><td>$500,000</td><td>Débito</td><td>10%</td></tr>
+                        <tr><td>02/11/2024</td><td>Crédito</td><td>$300,000</td><td>Crédito</td><td>5%</td></tr>
+                    </tbody>
+                </table>
+                <button onclick="volverMenu('ventas')">Regresar al Menú</button>
+            </div>
+        </div>
+
+        <div id="anulaciones" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="cerrarModal('anulaciones')">&times;</span>
+                <h3>Anulaciones</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Tipo de Venta</th>
+                            <th>Valor</th>
+                            <th>Tipo de Tarjeta</th>
+                            <th>Impuesto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>01/11/2024</td><td>Al contado</td><td>$200,000</td><td>Débito</td><td>8%</td></tr>
+                    </tbody>
+                </table>
+                <button onclick="volverMenu('anulaciones')">Regresar al Menú</button>
+            </div>
+        </div>
+
+        <div id="cierres" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="cerrarModal('cierres')">&times;</span>
+                <h3>Cierres</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Tipo de Cierre</th>
+                            <th>Valor Total</th>
+                            <th>Impuestos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>03/11/2024</td><td>Cierre diario</td><td>$800,000</td><td>15%</td></tr>
+                    </tbody>
+                </table>
+                <button onclick="volverMenu('cierres')">Regresar al Menú</button>
+            </div>
+        </div>
+
+        <div id="consultaSaldo" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="cerrarModal('consultaSaldo')">&times;</span>
+                <h3>Consulta de Saldo</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Saldo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>04/11/2024</td><td>$1,000,000</td></tr>
+                    </tbody>
+                </table>
+                <button onclick="volverMenu('consultaSaldo')">Regresar al Menú</button>
+            </div>
+        </div>
+
+        <div id="peticiones" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="cerrarModal('peticiones')">&times;</span>
+                <h3>Peticiones, Quejas o Reclamos</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Nombre</th>
+                            <th>Teléfono</th>
+                            <th>Petición</th>
+                            <th>Queja</th>
+                            <th>Reclamo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>05/11/2024</td><td>Juan Pérez</td><td>3001234567</td><td>Solicitud de asistencia</td><td></td><td></td></tr>
+                    </tbody>
+                </table>
+                <button onclick="volverMenu('peticiones')">Regresar al Menú</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 SISPOA - Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
